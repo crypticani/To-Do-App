@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+<div class="col-md-8">
+    <h2 class="bg-dark text-white" align="center">ToDo Lists</h2>
+
+</div>
+<div class="col-md-4 border-left border-primary">
+    <h2 class="bg-dark text-white" align="center">Add Todo Item</h2>
+    <form method="post" onsubmit="alert('Your List has been updated.');">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class='form-outline mb-3' style="margin-left:12px;">
+            <div> {{ field.label_tag }} </div>
+            <div class='form-input'> {{ field }} </div>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary"  style="margin-left:12px;">Submit</button>
+    </form>
+</div><br>
+</div>
+{% endblock %}

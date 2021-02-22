@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ page_title }}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+</head>
+<body class="position-relative">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+  <div class="mx-auto">
+    <a class="navbar-brand text-white" href="#"><b>ToDo App<b></a>
+    <div class="btn btn-warning " style="margin-left: 15px;">
+        <a href="/" class="ticket">
+            <div style="color: black;">Lists</div>
+        </a>
+    </div>
+    <div class="btn btn-warning " style="margin-left: 15px;">
+        <a href="/todo/today" class="ticket">
+            <div style="color: black;">Today</div>
+        </a>
+    </div>
+    <div class="btn btn-warning " style="margin-left: 15px;">
+        <a href="/scheduled" class="ticket">
+            <div style="color: black;">Scheduled</div>
+        </a>
+    </div>
+    </div>
+  </div>
+</nav>
+ <div class='container border jumbotron p-1'>
+<br>
+{% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-info">
+    <strong>{{message}}</strong>
+  </div>
+  {% endfor %}
+  {% endif %}
+{% block content %}
+{% endblock %}
+</div>
+
+<footer id="footer" class="container-fluid d-print-none position-absolute p-3  bg-dark text-white">
+    
+        <div class="container-fluid">
+            <div class="footer-copyright" align="center">
+                &copy; Copyright . All Rights Reserved. 
+            </div>
+        </div>
+</footer>
+</body>
+</html>
