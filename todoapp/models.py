@@ -20,7 +20,7 @@ class todoModel(models.Model):
         managed = True
 
     def __str__(self):
-        return self.heading
+        return self.heading 
 
 
 class todoForm(ModelForm):

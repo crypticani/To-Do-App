@@ -22,5 +22,6 @@ urlpatterns = [
     path('', views.Lists),
     path('delete/<int:item_id>', views.remove),
     path('done/<int:item_id>', views.Done),
-    path('scheduled', views.Schedule)
+    path('today', views.Today),
+    path('scheduled', views.Schedule),
 ]
