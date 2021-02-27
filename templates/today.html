@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content%}
+<h2 class="bg-dark text-white" align="center">Due Today</h2>
+<div class="row">
+<div class="col-md-2">
+</div>
+<div class="col-md-8">
+    {% for i in lists %}
+
+        <div class="card">
+            <div class="row">
+                <div class="col-md-6" align="left" style="margin-left:8px;">
+                   <br> <b>{{ i.heading }}</b>
+                </div>
+                {% if i.done == False %}
+                <div class="col-md-3" style="margin-top:6px;">
+                     <form action="/done/{{i.id}}" method="POST" style=" padding-right: 3%; padding-bottom: 3%;">
+                        {% csrf_token %}
+                        <button value="remove" type="submit" class="btn btn-success"><i class="fas fa-check-circle"></i> Mark as Done</button>
+                    </form>
+                </div>
+                {% endif %}
+                <div class="col-md-2" style="margin-top:6px; margin-left:4px;">
+                     <form action="/delete/{{i.id}}" method="POST" style=" padding-right: 3%; padding-bottom: 3%;">
+                        {% csrf_token %}
+                        <button value="remove" type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> remove</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-7" style="margin-left:10px;">
+                   {{ i.notes }}<hr>
+                    Due: {{ i.due_date }}<br>
+                </div>
+                <div class="col-md-3">
+                    Priority: {{ i.priority }}<br>
+                    Category: {{ i.category }}<br>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
