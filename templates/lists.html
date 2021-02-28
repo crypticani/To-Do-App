@@ -8,8 +8,8 @@
         <div class="row">
             <div class="col-md-4">
                 <h4>Personal</h4>
-                {% for mylist in lists %}
-                    {% if mylist.priority == "High" and mylist.category == "Personal" and mylist.Done == False %}
+                 {% for mylist in lists %}
+                    {% if mylist.priority == "High" and mylist.category == "Personal" and mylist.done == False %}
                       <li>{{ mylist.heading }} </li>
                     {% endif %}
                 {% endfor %}
