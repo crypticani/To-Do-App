@@ -3,6 +3,7 @@
 <html>
     <head>
         <title>{{ page_title }}</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -29,14 +30,18 @@
     </div>
     <div class="btn btn-warning " style="margin-left: 15px;">
         <a href="/today" class="ticket">
-            <div style="color: black;">Today</div>
+            <div style="color: black;">Today
+            <span class="badge badge-light">
+                    {{ counttd }}
+                </span>
+            </div>
         </a>
     </div>
     <div class="btn btn-warning " style="margin-left: 15px;">
         <a href="/scheduled" class="ticket">
             <div style="color: black;">Scheduled
                 <span class="badge badge-light">
-
+                    {{ countsc }}
                 </span>
             </div>
         </a>

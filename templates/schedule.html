@@ -36,6 +36,9 @@
                 <div class="col-md-3">
                     Priority: {{ i.priority }}<br>
                     Category: {{ i.category }}<br>
+                    {% if i.due_date <= due %}
+                    <p class="text-danger">Overdue</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

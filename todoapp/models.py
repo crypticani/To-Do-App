@@ -1,7 +1,7 @@
 from django.db import models
 from django.forms import ModelForm
-from django.forms import DateTimeInput,TextInput, Textarea
-from datetime import datetime
+from django.forms import DateTimeInput,TextInput, Textarea, TimeInput
+from datetime import datetime, date
 from django import forms
 
 
@@ -19,6 +19,7 @@ class todoModel(models.Model):
     class Meta:
         managed = True
 
+
     def __str__(self):
         return self.heading 
 
@@ -30,5 +31,5 @@ class todoForm(ModelForm):
         widgets = {
             'due_date': DateTimeInput(attrs={'type': 'date'}),
             'heading': TextInput(attrs={'size': '30'}),
-            'notes': Textarea(attrs={'rows':4, 'cols':30})
+            'notes': Textarea(attrs={'rows':4, 'cols':30}),
         }
