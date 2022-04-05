@@ -4,6 +4,15 @@ from . import models
 from django.contrib import messages
 from datetime import date
 
+TODAY_LIST = models.todoModel.objects.filter(due_date__date=date.today())
+counttd = len(TODAY_LIST)
+
+SCHEDULED_LIST = models.todoModel.objects.all()
+countsc = 0
+for e in SCHEDULED_LIST:
+    if e.done == 0:
+        countsc += 1
+
 
 def Lists(request):
     if request.method == 'POST':
@@ -20,7 +29,7 @@ def Lists(request):
     else:
         form = models.todoForm
         lists = models.todoModel.objects.order_by("assigned_date")
-        return render(request, 'lists.html', {'form': form, 'page_title': 'Lists', 'lists': lists})
+        return render(request, 'lists.html', {'form': form, 'page_title': 'Lists', 'lists': lists, 'countsc': countsc, 'counttd': counttd})
 
 def remove(request, item_id): 
     item = models.todoModel.objects.get(id=item_id) 
@@ -38,10 +47,11 @@ def Done(request, item_id):
 def Schedule(request):
     form = models.todoForm
     lists = models.todoModel.objects.order_by("due_date")
-    return render(request, 'schedule.html', {'form': form, 'page_title': 'Scheduled Lists', 'lists': lists})
+
+    return render(request, 'schedule.html', {'form': form, 'page_title': 'Scheduled Lists', 'lists': lists, 'countsc': countsc, 'counttd': counttd})
 
 def Today(request):
     form = models.todoForm
     lists = models.todoModel.objects.filter(due_date__date=date.today())
-    return render(request, 'today.html', {'form': form, 'page_title': 'Today', 'lists': lists})
+    return render(request, 'today.html', {'form': form, 'page_title': 'Today', 'lists': lists, 'countsc': countsc, 'counttd': counttd})
 
